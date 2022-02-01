@@ -1,4 +1,4 @@
-package Model;
+package interfaces;
 
 public interface IDrink {
 	String getName();
