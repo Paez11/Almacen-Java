@@ -2,10 +2,15 @@ package controller;
 
 import interfaces.IDrink;
 import interfaces.IMainController;
+import interfaces.IStore;
 import interfaces.IView;
+import model.Alcoholic;
+import model.Soda;
+import view.View;
 
 public class MainController implements IMainController{
-	IView view;
+	IView view = new View();
+	IStore store;
 	@Override
 	public void run() {
 		int option=-1;
@@ -32,15 +37,33 @@ public class MainController implements IMainController{
 	 */
 	private void switchMain(int option) {
 		switch(option) {
-			case 1: addDrink();
+			case 1: boolean result=addDrink();
+			if(result) {
+				view.print("Bebida insertada");
+			}else {
+				view.print("Error insertando bebida");
+			}
 				break;
 			case 2:
-				String name <---
-				searchDrink(name);
+				view.print("Inserte el nombre de la bebida");
+				String name=view.leeString();
+				IDrink d=searchDrink(name);
+				if(d==null) {
+					view.print("La bebida no existe");
+				}else {
+					view.print(d);
+				}
 				//mostrar
 				break;
 			case 3:
-				String name <---
+				view.print("Inserte el nombre de la bebida");
+				String name2=view.leeString();
+				IDrink d2=getDrink(name2);
+				if(d2==null) {
+					view.print("Bebida no encontrada");
+				}else {
+					view.print(d2);
+				}
 				getDrink(name);
 				//mostrar
 				break;
@@ -64,8 +87,19 @@ public class MainController implements IMainController{
 	 * no haber espacio, o una bebida con el mismo nombre
 	 */
 	private boolean addDrink() {
-		
-		return false;
+		view.print("Inserte el nombre de la bebida");
+		String name=view.leeString();
+		view.print("Inserte precio de la bebida");
+		float precio=view.leeFloat();
+		view.print("Inserte tipo de la bebida 1 alcoholica, 2 refresco");
+		int tipo=view.leeEntero();
+		IDrink newDrink=null;
+		if(tipo==1) {
+			newDrink=new Alcoholic(precio,name);
+		}else {
+			newDrink=new Soda(precio,name);
+		}
+		return store.addDrink(newDrink);
 	}
 	
 	/**
@@ -75,7 +109,7 @@ public class MainController implements IMainController{
 	 */
 	private IDrink searchDrink(String name) {
 		
-		return null;
+		return store.searchDrink(name);
 	}
 	
 	/**
@@ -86,7 +120,7 @@ public class MainController implements IMainController{
 	 */
 	private IDrink getDrink(String name) {
 		
-		return null;
+		return store.getDrink(name);
 	}
 	
 	/**
