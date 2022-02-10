@@ -27,5 +27,9 @@ public class View implements IView {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public static String print(String frase) {
+		return frase;
+	}
 
 }

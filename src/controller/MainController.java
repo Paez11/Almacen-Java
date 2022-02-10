@@ -6,11 +6,12 @@ import interfaces.IStore;
 import interfaces.IView;
 import model.Alcoholic;
 import model.Soda;
+import model.Store;
 import view.View;
 
 public class MainController implements IMainController{
 	IView view = new View();
-	IStore store;
+	IStore store = new Store();
 	@Override
 	public void run() {
 		int option=-1;
@@ -68,7 +69,7 @@ public class MainController implements IMainController{
 				//mostrar
 				break;
 			case 4:
-				IDrink drink <--
+				IDrink drink
 				updateDrink(drink);
 				break;
 			case 5: getHowMuch();
