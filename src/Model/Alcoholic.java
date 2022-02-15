@@ -2,22 +2,17 @@ package model;
 
 import interfaces.IDrink;
 
-public class Alcoholic implements IDrink {
+public class Alcoholic implements IDrink{
 	private Float price;
 	private String name;
 	
 	public Alcoholic() {
 		this(0f,"");
 	}
-
-	
 	public Alcoholic(Float price, String name) {
-		super();
 		this.price = price;
 		this.name = name;
 	}
-
-
 
 	@Override
 	public String getName() {
@@ -35,19 +30,19 @@ public class Alcoholic implements IDrink {
 	public void setName(String name) {
 		// TODO Auto-generated method stub
 		this.name=name;
+		
 	}
 
 	@Override
 	public void setPrice(Float price) {
 		// TODO Auto-generated method stub
 		this.price=price;
+		
 	}
-
-
 	@Override
 	public String toString() {
-		return "Alcoholic [price=" + price + ", name=" + name + "]";
+		return "Soda [price=" + price + ", name=" + name + "]";
 	}
-
 	
 }
+

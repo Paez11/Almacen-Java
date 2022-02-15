@@ -3,11 +3,10 @@ package interfaces;
 import model.DrinkType;
 
 public interface IStore {
-
 	boolean addDrink(IDrink drink);
 	IDrink searchDrink(String name);
 	IDrink getDrink(String name);
-	boolean updateDrink(String name, IDrink drink);
+	boolean updateDrink(String name,IDrink drink);
 	boolean isFull();
 	Float howMuch();
 	/**

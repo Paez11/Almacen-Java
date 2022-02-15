@@ -3,20 +3,21 @@ package controller;
 import interfaces.IDrink;
 
 public class SecundaryController {
-	
 	/**
-	 * Muestra el menu para determinar las acciones de insertar y
-	 * actualizar bebida
+	 * Muestra el menú para determinar las acciones
+	 * de insertar y actualizar bebida
 	 */
-	public void ShowSecundaryMenu() {
+	public void showSencundaryMenu() {
 		
 	}
 	/**
-	 * Realiza las acciones que permiten tomar datos para crear o actualizar una bebida
-	 * @param option que determina si se crea o edita una bebida
-	 * @return  la bebida a ser creada o actualizada
+	 * Realiza la acciones que permite tomar datos
+	 * para crear o actualizar una bebida
+	 * @param option que determina si se crea o edita una 
+	 * bebida
+	 * @return la bebida a ser creada o actualizada
 	 */
-	public IDrink switchSecudaryMenu(int option) {
+	public IDrink switchSecundaryMenu(int option) {
 		return null;
 	}
-}	
+}

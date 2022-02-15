@@ -4,42 +4,54 @@ import interfaces.IDrink;
 import interfaces.IStore;
 
 public class Store implements IStore{
-
 	private IDrink[][] drinks;
 	
 	public Store() {
-		drinks= new IDrink[3][3];
+		drinks=new IDrink[3][3];
 	}
-	public Store(int ncols, int nrows) {
+	public Store(int ncols,int nrows) {
 		drinks=new IDrink[nrows][ncols];
 	}
+	
+	
 	@Override
 	public boolean addDrink(IDrink drink) {
 		boolean result=false;
-		
-		if(drink!=null && !isFull() && searchDrink(drink.getName())==null) {
-			for (int i=0; i < drinks.length && !result; i++) {
-				for (int j = drinks[0].length-1; j >=0 && !result; j--) {
-					if(drink.getName()==drinks[i][j].getName()) {
-						result=false;
-					}else {
-						if(drinks[i][j]==null) {
-							drinks[i][j]=drink;
-							result=true;
-						}else {
-							result=false;
+		if(drink!=null 
+				&& !isFull() 
+				&& searchDrink(drink.getName())==null) {
+					for(int i=0;i<drinks.length&&!result;i++) {
+						for(int j=drinks[0].length-1;j>=0&&!result;j--) {
+							if(drinks[i][j]==null) {
+								drinks[i][j]=drink;
+								result=true;
+								// i=drinks.length; j=-1;
+								// return result;
+							}
 						}
 					}
-				}
-			}
 		}
+		
 		return result;
 	}
 
 	@Override
 	public IDrink searchDrink(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		IDrink item=null;
+		if(name!=null) {
+			for(int i=0;i<drinks.length;i++) {
+				for(int j=drinks[0].length-1;j>=0;j--) {
+					if(drinks[i][j]!=null && 
+				 drinks[i][j].getName().equals(name)) {
+						 item=drinks[i][j];
+						 i=drinks.length; j=-1;
+						// return result;
+					}
+				}
+			}
+		}
+		return item;
+		
 	}
 
 	@Override
